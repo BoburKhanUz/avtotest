@@ -1,0 +1,167 @@
+/* General Styling */
+body {
+    background: linear-gradient(135deg, #f0f4f8, #d9e2ec); /* Soft gradient background */
+    font-family: 'Poppins', sans-serif; /* Modern font */
+    color: #2c3e50;
+}
+
+/* Navbar Styling */
+.navbar-dark {
+    background: linear-gradient(to right, #2c3e50, #34495e); /* Gradient navbar */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.navbar-brand {
+    font-weight: 700;
+    font-size: 1.8rem;
+    color: #00d4ff !important; /* Bright cyan */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.navbar-nav .nav-link {
+    color: #ecf0f1 !important;
+    font-weight: 500;
+    padding: 10px 15px;
+    transition: all 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #00d4ff !important; /* Cyan hover effect */
+    transform: translateY(-2px); /* Subtle lift */
+}
+
+/* Container Styling */
+.container {
+    max-width: 1300px;
+    margin-top: 40px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: #2c3e50;
+    font-weight: 700;
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    background: linear-gradient(to right, #3498db, #8e44ad); /* Gradient text */
+    color: transparent;
+}
+
+/* Button Styling */
+.btn-primary {
+    background: linear-gradient(45deg, #3498db, #2980b9); /* Gradient button */
+    border: none;
+    padding: 12px 24px;
+    border-radius: 25px;
+    font-weight: 600;
+    text-transform: uppercase;
+    box-shadow: 0 4px 10px rgba(52, 152, 219, 0.3);
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(45deg, #2980b9, #1b5e90);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(52, 152, 219, 0.5);
+}
+
+.btn-warning {
+    background: linear-gradient(45deg, #f1c40f, #e67e22);
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 20px;
+    box-shadow: 0 3px 8px rgba(241, 196, 15, 0.3);
+    transition: all 0.3s ease;
+}
+
+.btn-warning:hover {
+    background: linear-gradient(45deg, #e67e22, #d35400);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 12px rgba(230, 126, 34, 0.5);
+}
+
+.btn-danger {
+    background: linear-gradient(45deg, #e74c3c, #c0392b);
+    padding: 8px 16px;
+    border-radius: 20px;
+    box-shadow: 0 3px 8px rgba(231, 76, 60, 0.3);
+    transition: all 0.3s ease;
+}
+
+.btn-danger:hover {
+    background: linear-gradient(45deg, #c0392b, #992d22);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 12px rgba(192, 57, 43, 0.5);
+}
+
+/* Alert Styling */
+.alert-success {
+    background: linear-gradient(to right, #2ecc71, #27ae60);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 4px 10px rgba(46, 204, 113, 0.3);
+}
+
+/* Table Styling */
+.table {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.table thead th {
+    background: linear-gradient(to right, #3498db, #2980b9); /* Gradient header */
+    color: #fff;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 15px;
+    border-bottom: 3px solid #1b5e90;
+    text-align: center;
+}
+
+.table tbody tr {
+    transition: all 0.3s ease;
+}
+
+.table tbody tr:hover {
+    background: rgba(52, 152, 219, 0.1); /* Light hover effect */
+    transform: scale(1.01); /* Slight zoom */
+}
+
+.table td {
+    vertical-align: middle;
+    text-align: center;
+    padding: 12px;
+    border-bottom: 1px solid #e9ecef;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    .btn {
+        padding: 10px 18px;
+        font-size: 14px;
+    }
+
+    .table {
+        font-size: 14px;
+    }
+
+    .table td, .table th {
+        padding: 10px;
+    }
+}
