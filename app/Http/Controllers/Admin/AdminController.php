@@ -24,18 +24,22 @@ class AdminController extends Controller
 
     public function stats()
     {
-        $language = auth()->user()->language ?? 'uz'; // Foydalanuvchi tilini olish (standart: uz)
+        // Xavfsizlik: Faqat ruxsat etilgan tillar
+        $allowedLanguages = ['uz', 'ru', 'en'];
+        $language = auth()->user()->language ?? 'uz';
+        $language = in_array($language, $allowedLanguages) ? $language : 'uz';
+
         $categoryStats = TestResult::join('tests', 'test_results.test_id', '=', 'tests.id')
             ->join('categories', 'tests.category_id', '=', 'categories.id')
-            ->selectRaw("categories.name_$language as category_name, AVG(test_results.score) as average_score, COUNT(*) as attempts")
-            ->groupBy("categories.name_$language")
-            ->orderBy("categories.name_$language")
+            ->selectRaw("categories.name_{$language} as category_name, AVG(test_results.score) as average_score, COUNT(*) as attempts")
+            ->groupBy("categories.name_{$language}")
+            ->orderBy("categories.name_{$language}")
             ->get();
-    
+
         $labels = $categoryStats->pluck('category_name');
         $scores = $categoryStats->pluck('average_score');
         $attempts = $categoryStats->pluck('attempts');
-    
+
         return view('admin.stats', compact('categoryStats', 'labels', 'scores', 'attempts'));
     }
     
