@@ -3,314 +3,76 @@
 @section('title', 'Dashboard')
 
 @section('content')
-<div class="container-fluid">
-    <!-- Header -->
-    <div class="row mb-4">
-        <div class="col-12">
-            <h1 class="h3 mb-0 text-gray-800">
-                <i class="fas fa-tachometer-alt"></i> Dashboard
-            </h1>
-            <p class="text-muted">Platformaning umumiy ko'rinishi va statistikasi</p>
-        </div>
-    </div>
-
-    <!-- Statistics Cards -->
     <div class="row">
-        <!-- Total Users -->
-        <div class="col-xl-3 col-md-6 mb-4">
-            <div class="card border-left-primary shadow h-100 py-2">
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                Foydalanuvchilar
-                            </div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ number_format($totalUsers) }}</div>
-                            <small class="text-success"><i class="fas fa-arrow-up"></i> Aktiv</small>
-                        </div>
-                        <div class="col-auto">
-                            <i class="fas fa-users fa-2x text-gray-300"></i>
-                        </div>
-                    </div>
+        <!--begin::Col-->
+        <div class="col-lg-3 col-6">
+            <!--begin::Small Box Widget 1-->
+            <div class="small-box text-bg-primary">
+                <div class="inner">
+                    <h3>{{ $totalUsers }}</h3>
+                    <p>Foydalanuvchilar</p>
                 </div>
+                <svg class="small-box-icon" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M6.25 6.375a4.125 4.125 0 118.25 0 4.125 4.125 0 01-8.25 0zM3.25 19.125a7.125 7.125 0 0114.25 0v.003l-.001.119a.75.75 0 01-.363.63 13.067 13.067 0 01-6.761 1.873c-2.472 0-4.786-.684-6.76-1.873a.75.75 0 01-.364-.63l-.001-.122zM19.75 7.5a.75.75 0 00-1.5 0v2.25H16a.75.75 0 000 1.5h2.25v2.25a.75.75 0 001.5 0v-2.25H22a.75.75 0 000-1.5h-2.25V7.5z"></path>
+                </svg>
+                <a href="#" class="small-box-footer link-light link-underline-opacity-0 link-underline-opacity-50-hover">
+                    More info <i class="bi bi-link-45deg"></i>
+                </a>
             </div>
+            <!--end::Small Box Widget 1-->
         </div>
-
-        <!-- Total Tests -->
-        <div class="col-xl-3 col-md-6 mb-4">
-            <div class="card border-left-success shadow h-100 py-2">
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                Testlar
-                            </div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ number_format($totalTests) }}</div>
-                            <small class="text-muted">Mavjud testlar soni</small>
-                        </div>
-                        <div class="col-auto">
-                            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
-                        </div>
-                    </div>
+        <!--end::Col-->
+        <div class="col-lg-3 col-6">
+            <!--begin::Small Box Widget 2-->
+            <div class="small-box text-bg-success">
+                <div class="inner">
+                    <h3>{{ $totalTests }}<sup class="fs-5"></sup></h3>
+                    <p>Testlar</p>
                 </div>
+                <svg class="small-box-icon" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M18.375 2.25c-1.035 0-1.875.84-1.875 1.875v15.75c0 1.035.84 1.875 1.875 1.875h.75c1.035 0 1.875-.84 1.875-1.875V4.125c0-1.036-.84-1.875-1.875-1.875h-.75zM9.75 8.625c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v11.25c0 1.035-.84 1.875-1.875 1.875h-.75a1.875 1.875 0 01-1.875-1.875V8.625zM3 13.125c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v6.75c0 1.035-.84 1.875-1.875 1.875h-.75A1.875 1.875 0 013 19.875v-6.75z"></path>
+                </svg>
+                <a href="#" class="small-box-footer link-light link-underline-opacity-0 link-underline-opacity-50-hover">
+                    More info <i class="bi bi-link-45deg"></i>
+                </a>
             </div>
+            <!--end::Small Box Widget 2-->
         </div>
-
-        <!-- Active Subscriptions -->
-        <div class="col-xl-3 col-md-6 mb-4">
-            <div class="card border-left-warning shadow h-100 py-2">
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                Faol Obunalar
-                            </div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ number_format($activeSubscriptions) }}</div>
-                            <small class="text-info"><i class="fas fa-sync"></i> Davom etmoqda</small>
-                        </div>
-                        <div class="col-auto">
-                            <i class="fas fa-star fa-2x text-gray-300"></i>
-                        </div>
-                    </div>
+        <!--end::Col-->
+        <div class="col-lg-3 col-6">
+            <!--begin::Small Box Widget 3-->
+            <div class="small-box text-bg-warning">
+                <div class="inner">
+                    <h3>{{ $activeSubscriptions }}</h3>
+                    <p>Faol Obunalar</p>
                 </div>
+                <svg class="small-box-icon" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M2.25 2.25a.75.75 0 000 1.5h1.386c.17 0 .318.114.362.278l2.558 9.592a3.752 3.752 0 00-2.806 3.63c0 .414.336.75.75.75h15.75a.75.75 0 000-1.5H5.378A2.25 2.25 0 017.5 15h11.218a.75.75 0 00.674-.421 60.358 60.358 0 002.96-7.228.75.75 0 00-.525-.965A60.864 60.864 0 005.68 4.509l-.232-.867A1.875 1.875 0 003.636 2.25H2.25zM3.75 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zM16.5 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0z"></path>
+                </svg>
+                <a href="#" class="small-box-footer link-dark link-underline-opacity-0 link-underline-opacity-50-hover">
+                    More info <i class="bi bi-link-45deg"></i>
+                </a>
             </div>
+            <!--end::Small Box Widget 3-->
         </div>
-
-        <!-- Total Revenue -->
-        <div class="col-xl-3 col-md-6 mb-4">
-            <div class="card border-left-danger shadow h-100 py-2">
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">
-                                Umumiy Daromad
-                            </div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ number_format($totalRevenue, 0, '.', ' ') }} so'm</div>
-                            <small class="text-success"><i class="fas fa-chart-line"></i> Muvaffaqiyatli</small>
-                        </div>
-                        <div class="col-auto">
-                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
-                        </div>
-                    </div>
+        <!--end::Col-->
+        <div class="col-lg-3 col-6">
+            <!--begin::Small Box Widget 4-->
+            <div class="small-box text-bg-danger">
+                <div class="inner">
+                    <h3>${{ number_format($totalRevenue, 2) }}</h3>
+                    <p>Umumiy Daromad</p>
                 </div>
+                <svg class="small-box-icon" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path clip-rule="evenodd" fill-rule="evenodd" d="M2.25 13.5a8.25 8.25 0 018.25-8.25.75.75 0 01.75.75v6.75H18a.75.75 0 01.75.75 8.25 8.25 0 01-16.5 0z"></path>
+                    <path clip-rule="evenodd" fill-rule="evenodd" d="M12.75 3a.75.75 0 01.75-.75 8.25 8.25 0 018.25 8.25.75.75 0 01-.75.75h-7.5a.75.75 0 01-.75-.75V3z"></path>
+                </svg>
+                <a href="#" class="small-box-footer link-light link-underline-opacity-0 link-underline-opacity-50-hover">
+                    More info <i class="bi bi-link-45deg"></i>
+                </a>
             </div>
+            <!--end::Small Box Widget 4-->
         </div>
+        <!--end::Col-->
     </div>
-
-    <!-- Charts Row -->
-    <div class="row">
-        <!-- Chart Column -->
-        <div class="col-xl-8 col-lg-7">
-            <div class="card shadow mb-4">
-                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                    <h6 class="m-0 font-weight-bold text-primary">
-                        <i class="fas fa-chart-area"></i> Oylik Statistika
-                    </h6>
-                    <div class="dropdown no-arrow">
-                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-                            <div class="dropdown-header">Filter:</div>
-                            <a class="dropdown-item" href="#">Bu oy</a>
-                            <a class="dropdown-item" href="#">O'tgan oy</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <div class="chart-area">
-                        <canvas id="myAreaChart" style="height: 300px;"></canvas>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Pie Chart -->
-        <div class="col-xl-4 col-lg-5">
-            <div class="card shadow mb-4">
-                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                    <h6 class="m-0 font-weight-bold text-primary">
-                        <i class="fas fa-chart-pie"></i> Kategoriya Bo'yicha
-                    </h6>
-                </div>
-                <div class="card-body">
-                    <div class="chart-pie pt-4 pb-2">
-                        <canvas id="myPieChart" style="height: 245px;"></canvas>
-                    </div>
-                    <div class="mt-4 text-center small">
-                        <span class="mr-2">
-                            <i class="fas fa-circle text-primary"></i> Yo'l qoidalari
-                        </span>
-                        <span class="mr-2">
-                            <i class="fas fa-circle text-success"></i> Belgilar
-                        </span>
-                        <span class="mr-2">
-                            <i class="fas fa-circle text-info"></i> Boshqalar
-                        </span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Recent Activity -->
-    <div class="row">
-        <div class="col-lg-6 mb-4">
-            <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">
-                        <i class="fas fa-tasks"></i> So'nggi Testlar
-                    </h6>
-                </div>
-                <div class="card-body">
-                    <div class="table-responsive">
-                        <table class="table table-hover">
-                            <thead>
-                                <tr>
-                                    <th>Foydalanuvchi</th>
-                                    <th>Test</th>
-                                    <th>Natija</th>
-                                    <th>Vaqt</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><i class="fas fa-user-circle text-primary"></i> John Doe</td>
-                                    <td>Yo'l qoidalari #1</td>
-                                    <td><span class="badge badge-success">85%</span></td>
-                                    <td>2 daqiqa oldin</td>
-                                </tr>
-                                <tr>
-                                    <td><i class="fas fa-user-circle text-info"></i> Jane Smith</td>
-                                    <td>Belgilar testi</td>
-                                    <td><span class="badge badge-warning">65%</span></td>
-                                    <td>5 daqiqa oldin</td>
-                                </tr>
-                                <tr>
-                                    <td><i class="fas fa-user-circle text-success"></i> Bob Johnson</td>
-                                    <td>Amaliy test</td>
-                                    <td><span class="badge badge-success">90%</span></td>
-                                    <td>10 daqiqa oldin</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <a href="{{ route('admin.stats') }}" class="btn btn-primary btn-sm btn-block">
-                        <i class="fas fa-chart-bar"></i> Batafsil Statistika
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-lg-6 mb-4">
-            <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">
-                        <i class="fas fa-bell"></i> Tezkor Amallar
-                    </h6>
-                </div>
-                <div class="card-body">
-                    <a href="{{ route('admin.tests.create') }}" class="btn btn-success btn-block mb-2">
-                        <i class="fas fa-plus-circle"></i> Yangi Test Qo'shish
-                    </a>
-                    <a href="{{ route('admin.users.index') }}" class="btn btn-info btn-block mb-2">
-                        <i class="fas fa-users"></i> Foydalanuvchilarni Ko'rish
-                    </a>
-                    <a href="{{ route('admin.categories.index') }}" class="btn btn-warning btn-block mb-2">
-                        <i class="fas fa-folder"></i> Kategoriyalar
-                    </a>
-                    <a href="{{ route('admin.plans.index') }}" class="btn btn-primary btn-block mb-2">
-                        <i class="fas fa-star"></i> Tariflar
-                    </a>
-                    <a href="{{ route('admin.promocodes.index') }}" class="btn btn-secondary btn-block mb-2">
-                        <i class="fas fa-tag"></i> Promokodlar
-                    </a>
-                    <a href="{{ route('admin.api-docs') }}" class="btn btn-dark btn-block">
-                        <i class="fas fa-code"></i> API Dokumentatsiya
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-@push('scripts')
-<script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
-<script>
-// Area Chart
-var ctx = document.getElementById("myAreaChart");
-var myLineChart = new Chart(ctx, {
-    type: 'line',
-    data: {
-        labels: ["Yan", "Fev", "Mar", "Apr", "May", "Iyun", "Iyul", "Avg", "Sen", "Okt", "Noy", "Dek"],
-        datasets: [{
-            label: "Testlar",
-            lineTension: 0.3,
-            backgroundColor: "rgba(78, 115, 223, 0.05)",
-            borderColor: "rgba(78, 115, 223, 1)",
-            pointRadius: 3,
-            pointBackgroundColor: "rgba(78, 115, 223, 1)",
-            pointBorderColor: "rgba(78, 115, 223, 1)",
-            pointHoverRadius: 3,
-            pointHoverBackgroundColor: "rgba(78, 115, 223, 1)",
-            pointHoverBorderColor: "rgba(78, 115, 223, 1)",
-            pointHitRadius: 10,
-            pointBorderWidth: 2,
-            data: [0, 10, 5, 15, 10, 20, 15, 25, 20, 30, 25, 40],
-        }],
-    },
-    options: {
-        maintainAspectRatio: false,
-        layout: {
-            padding: {
-                left: 10,
-                right: 25,
-                top: 25,
-                bottom: 0
-            }
-        },
-        scales: {
-            x: {
-                grid: {
-                    display: false
-                }
-            },
-            y: {
-                ticks: {
-                    maxTicksLimit: 5
-                }
-            }
-        },
-        plugins: {
-            legend: {
-                display: false
-            }
-        }
-    }
-});
-
-// Pie Chart
-var ctx2 = document.getElementById("myPieChart");
-var myPieChart = new Chart(ctx2, {
-    type: 'doughnut',
-    data: {
-        labels: ["Yo'l qoidalari", "Belgilar", "Amaliy", "Boshqalar"],
-        datasets: [{
-            data: [55, 25, 15, 5],
-            backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc', '#f6c23e'],
-            hoverBackgroundColor: ['#2e59d9', '#17a673', '#2c9faf', '#dda20a'],
-            hoverBorderColor: "rgba(234, 236, 244, 1)",
-        }],
-    },
-    options: {
-        maintainAspectRatio: false,
-        plugins: {
-            legend: {
-                display: false
-            }
-        }
-    }
-});
-</script>
-@endpush
 @endsection
