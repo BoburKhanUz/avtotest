@@ -9,6 +9,9 @@ use App\Http\Controllers\Admin\QuestionController;
 use App\Http\Controllers\Admin\TestController as AdminTestController;
 use App\Http\Controllers\Admin\UserController as AdminUserController;
 use App\Http\Controllers\Admin\ProfileController;
+use App\Http\Controllers\Admin\SubscriptionController;
+use App\Http\Controllers\Admin\PaymentController;
+use App\Http\Controllers\Admin\TestResultController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -46,7 +49,7 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
         'destroy' => 'admin.tests.destroy',
     ]);
 
-    Route::resource('users', ProfileController::class)->names([
+    Route::resource('users', AdminUserController::class)->names([
         'index' => 'admin.users.index',
         'create' => 'admin.users.create',
         'store' => 'admin.users.store',
@@ -98,7 +101,35 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
     Route::post('tests/{test}/questions/import', [QuestionController::class, 'import'])->name('admin.questions.import');
     Route::get('tests/{test}/questions/export', [QuestionController::class, 'export'])->name('admin.questions.export');
 
-    // Profile uchun qo'shimcha route‘lar
+    // Subscriptions
+    Route::resource('subscriptions', SubscriptionController::class)->names([
+        'index' => 'admin.subscriptions.index',
+        'create' => 'admin.subscriptions.create',
+        'store' => 'admin.subscriptions.store',
+        'show' => 'admin.subscriptions.show',
+        'edit' => 'admin.subscriptions.edit',
+        'update' => 'admin.subscriptions.update',
+        'destroy' => 'admin.subscriptions.destroy',
+    ]);
+    Route::post('subscriptions/{subscription}/deactivate', [SubscriptionController::class, 'deactivate'])->name('admin.subscriptions.deactivate');
+    Route::post('subscriptions/{subscription}/activate', [SubscriptionController::class, 'activate'])->name('admin.subscriptions.activate');
+    Route::post('subscriptions/{subscription}/extend', [SubscriptionController::class, 'extend'])->name('admin.subscriptions.extend');
+
+    // Payments
+    Route::get('payments', [PaymentController::class, 'index'])->name('admin.payments.index');
+    Route::get('payments/{payment}', [PaymentController::class, 'show'])->name('admin.payments.show');
+    Route::post('payments/{payment}/refund', [PaymentController::class, 'refund'])->name('admin.payments.refund');
+    Route::post('payments/{payment}/cancel', [PaymentController::class, 'cancel'])->name('admin.payments.cancel');
+    Route::get('payments/export/csv', [PaymentController::class, 'export'])->name('admin.payments.export');
+
+    // Test Results & Statistics
+    Route::get('test-results', [TestResultController::class, 'index'])->name('admin.test-results.index');
+    Route::get('test-results/{testResult}', [TestResultController::class, 'show'])->name('admin.test-results.show');
+    Route::delete('test-results/{testResult}', [TestResultController::class, 'destroy'])->name('admin.test-results.destroy');
+    Route::get('test-results/export/csv', [TestResultController::class, 'export'])->name('admin.test-results.export');
+    Route::get('statistics', [TestResultController::class, 'statistics'])->name('admin.statistics');
+
+    // Profile uchun qo'shimcha route'lar
     Route::get('/profile/{user}', [ProfileController::class, 'show'])->name('admin.profile.show');
     Route::get('/profile/{user}/edit', [ProfileController::class, 'edit'])->name('admin.profile.edit');
     Route::put('/profile/{user}', [ProfileController::class, 'update'])->name('admin.profile.update');
