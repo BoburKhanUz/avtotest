@@ -30,7 +30,6 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/reports/test-results', [ReportController::class, 'testResultReport']);
     Route::post('/test-sessions/start', [TestSessionController::class, 'start']);
     Route::post('/test-sessions/{session}/submit', [TestSessionController::class, 'submit']);
-    Route::get('/test-sessions/{session}/status', [TestSessionController::class, 'status']);
     Route::get('/reports/user-stats', [ReportController::class, 'userStats']);
     Route::put('/profile', [AuthController::class, 'updateProfile']);
 
